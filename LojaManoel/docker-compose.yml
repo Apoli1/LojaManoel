@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  # Serviço para o banco de dados SQL Server
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver_db
+    ports:
+      - "1433:1433" # Mapeia a porta 1433 do host para a porta 1433 do contêiner
+    environment:
+      SA_PASSWORD: "Phkws18pb@2025" # <--- MUDE ISTO PARA UMA SENHA REAL E FORTE!
+      ACCEPT_EULA: "Y"
+    volumes:
+      - sql_data:/var/opt/mssql # Mapeia um volume para persistir os dados
+
+  # Serviço para a sua API .NET
+  api:
+    # O contexto de build é a pasta atual (LojaManoel)
+    build:
+      context: .
+      dockerfile: Dockerfile # O Dockerfile está na mesma pasta, então não precisa de caminho relativo
+    container_name: lojamanoel_api
+    ports:
+      - "5149:80" # Mapeia a porta 5149 do host para a porta 80 do contêiner (HTTP)
+    environment:
+      ASPNETCORE_URLS: "http://+:80"
+      # Importante: O nome "db" na connection string abaixo refere-se ao nome do serviço do banco de dados no docker-compose.yml
+      ConnectionStrings__DefaultConnection: "Server=db;Database=LojaManoelDb;User Id=sa;Password=YourStrong!Password;TrustServerCertificate=True" # <--- MUDE A SENHA AQUI PARA A MESMA DE SA_PASSWORD!
+    depends_on:
+      - db
+    restart: on-failure
+
+volumes:
+  sql_data:

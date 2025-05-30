@@ -1,0 +1,46 @@
+# Ignore VS Code settings
+.vscode/
+
+# Ignore build output
+[Bb]in/
+[Oo]bj/
+
+# Ignore Visual Studio files
+.vs/
+*.suo
+*.user
+*.psess
+*.vssscc
+*.bak
+*.opendata
+*.VC.db
+*.sdf
+*.exe
+*.dll
+*.pdb
+*.cache
+*.log
+*.tlog
+*.resources
+
+# NuGet packages
+*.nupkg
+packages/
+
+# EF migrations history
+[Mm]igrations/.*.Designer.cs # If you want to commit migration files but ignore designer files
+
+# DotNet tools
+.config/dotnet-tools.json
+.config/dotnet-tools.json.copy
+
+# Docker
+# Dockerfile is explicitly included by docker-compose.yml
+# .dockerignore is explicitly ignored by docker-compose.yml build context (which is . here)
+# So no need to explicitly ignore them here for Git, unless you have special needs.
+# But for general safety, adding .dockerignore to .gitignore is fine.
+.dockerignore
+
+# Local settings
+appsettings.Development.json # If you store sensitive dev settings here
+appsettings.json.user
