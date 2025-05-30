@@ -5,7 +5,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
@@ -17,7 +16,7 @@ builder.Services.AddScoped<LojaManoel.Api.Services.EmbalagemService>();
 var app = builder.Build();
 
 
-// Configure the HTTP request pipeline.
+//HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

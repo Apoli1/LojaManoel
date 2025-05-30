@@ -2,7 +2,7 @@
 {
     public class PedidoEntrada
     {
-        public string IdPedido { get; set; } // Use string para maior flexibilidade
+        public string ?IdPedido { get; set; }
         public List<Produto> Produtos { get; set; } = new List<Produto>();
     }
 }

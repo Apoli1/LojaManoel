@@ -1,7 +1,7 @@
 ﻿// Models/CaixaEmProcessamento.cs
-using System; // Adicione este using se não estiver presente
+using System; 
 using System.Collections.Generic;
-using System.Linq; // Adicione este using se não estiver presente
+using System.Linq; 
 
 namespace LojaManoel.Api.Models
 {
@@ -12,7 +12,7 @@ namespace LojaManoel.Api.Models
         public decimal LarguraOriginal { get; }
         public decimal ComprimentoOriginal { get; }
 
-        public decimal VolumeDisponivel { get; private set; } // Esta é a capacidade restante
+        public decimal VolumeDisponivel { get; private set; } //Capacidade restante
 
         public List<Produto> ProdutosEmpacotados { get; } = new List<Produto>();
 
@@ -45,7 +45,6 @@ namespace LojaManoel.Api.Models
                 decimal pComprimento = perm.Item3;
 
                 // Se uma das permutações do produto cabe DENTRO das dimensões originais da caixa.
-                // AQUI É A PARTE CRÍTICA QUE VAI IMPEDIR O PROD-004 DE ENTRAR NA CAIXA 1
                 if (pAltura <= AlturaOriginal && pLargura <= LarguraOriginal && pComprimento <= ComprimentoOriginal)
                 {
                     cabeDimensionalmente = true;

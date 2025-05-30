@@ -8,7 +8,7 @@
         public decimal Comprimento { get; set; }
         public decimal Volume => Altura * Largura * Comprimento;
 
-        // Opcional: Adicione um construtor para facilitar a criação
+        // Opcional: Construtor para facilitar a criação
         public CaixaBase(string nome, decimal altura, decimal largura, decimal comprimento)
         {
             Nome = nome;
