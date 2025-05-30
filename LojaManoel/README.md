@@ -117,7 +117,7 @@ As dimensões das caixas pré-fabricadas do Seu Manoel são:
 * **Persistência:** A aplicação salva os dados dos pedidos de entrada e os resultados do empacotamento (quais produtos foram em quais caixas) no SQL Server utilizando EF Core e migrações. O banco de dados é criado e atualizado automaticamente na inicialização da aplicação (em ambiente de desenvolvimento).
 * **Robustez do Docker:** O ambiente Docker foi configurado para ser resiliente, tratando a inicialização do SQL Server e a comunicação entre os serviços.
 
-* ## 🤝 Agradecimentos / Ferramentas Auxiliares
+* ## 🤝 Ferramentas Auxiliares
 
 * **Durante o desenvolvimento e depuração deste projeto, utilizei **ferramentas de Inteligência Artificial** (como um assistente de codificação/depuração) para acelerar o aprendizado e a resolução de problemas complexos relacionados à configuração de ambiente e sintaxe. Essa abordagem permitiu focar na lógica de negócio e na compreensão aprofundada dos desafios.
 ---
