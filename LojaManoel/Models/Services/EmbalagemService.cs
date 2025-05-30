@@ -17,7 +17,7 @@ namespace LojaManoel.Api.Services
 
             // 1. Ordene os produtos do maior para o menor volume (ou outra dimensão)
             var produtosOrdenados = pedidoEntrada.Produtos
-                                                .OrderByDescending(p => p.Volume) // Ou por maior dimensão, ex: p => Math.Max(p.Altura, Math.Max(p.Largura, p.Comprimento))
+                                                .OrderByDescending(p => p.Volume) 
                                                 .ToList();
 
             // Lista de caixas que estão sendo usadas e que ainda têm espaço (CaixaEmProcessamento)
@@ -42,7 +42,7 @@ namespace LojaManoel.Api.Services
                 {
                     CaixaBase caixaSelecionadaBase = null;
 
-                    // Tente encontrar a menor caixa BASE DISPONÍVEL que o produto cabe
+                    // Encontra a menor caixa BASE DISPONÍVEL que o produto cabe
                     // Ordena as caixas base pelo volume para tentar usar a menor possível (otimização de caixas)
                     var caixasBaseOrdenadas = CaixaInventario.CaixasPadrao
                                                              .OrderBy(c => c.Volume)
@@ -51,7 +51,6 @@ namespace LojaManoel.Api.Services
                     foreach (var caixaBase in caixasBaseOrdenadas)
                     {
                         // Temporariamente cria uma caixa em processamento para testar se o produto CABE nela.
-                        // Isso é um pouco redundante, mas evita duplicar a lógica de "TentarAdicionarProduto".
                         var tempCaixa = new CaixaEmProcessamento(caixaBase);
                         if (tempCaixa.TentarAdicionarProduto(produto)) // Se o produto cabe na caixa base VAZIA
                         {

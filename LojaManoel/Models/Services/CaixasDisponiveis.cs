@@ -1,4 +1,4 @@
-﻿namespace LojaManoel.Api.Models // ou LojaManoel.Api.Services
+﻿namespace LojaManoel.Api.Models
 {
     public static class CaixaInventario
     {
